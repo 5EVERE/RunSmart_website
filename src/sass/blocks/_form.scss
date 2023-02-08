@@ -1,0 +1,40 @@
+.form {
+  padding: 100px 0;
+  min-height: 680px;
+  background: url("../img/bg/bg2.png") center center/cover no-repeat;
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  &__header {
+    font-weight: 700;
+    font-size: 36px;
+    text-transform: uppercase;
+    color: #ffffff;
+    margin-bottom: 8px;
+  }
+  &__descr {
+    font-weight: 500;
+    font-size: 20px;
+    color: #ffffff;
+    margin-bottom: 36px;
+  }
+  &__inputs {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    input {
+      border: none;
+      border-radius: 5px;
+      width: 300px;
+      height: 50px;
+      background: #ffffff;
+      font-weight: 400;
+      font-size: 14px;
+      color: #4b4b4b;
+      padding-left: 20px;
+      margin-bottom: 13px;
+    }
+  }
+}
