@@ -36,6 +36,53 @@ $(document).ready(function () {
 
   // toggleSlide(".catalog-item__link");
   // toggleSlide(".catalog-item__back");
+  $("[data-tab=consultation").on("click", function () {
+    $(".overlay, #consultation").fadeIn("slow");
+  });
+  $(".modal__close").on("click", function () {
+    $(".overlay, #consultation, #order, #thanks").fadeOut("slow");
+  });
+  $(".button_mini").each(function (i) {
+    $(this).on("click", function () {
+      $("#order .modal__descr").text($(".catalog-item__subtitle").eq(i).text());
+      $(".overlay, #order").fadeIn("slow");
+      console.log(this);
+      console.log($(".catalog-item__subtitle").eq(i));
+    });
+  });
+
+  const validateForm = function (form) {
+    $(form).validate({
+      rules: {
+        name: {
+          required: true,
+          minlength: 2,
+        },
+        phone: "required",
+        email: {
+          required: true,
+          email: true,
+        },
+      },
+      message: {
+        email: {
+          required: "We need your name",
+          minlength: jQuery.validator.format("Input {0} characters"),
+        },
+        phone: "Please specify tour phone number",
+        email: {
+          required: "We need your email address",
+          email:
+            "Your email address must be in the format email@domain.atribute",
+        },
+      },
+    });
+  };
+  validateForm("#consultation-form");
+  validateForm("#modal-consultation-form");
+  validateForm("#modal-order-form");
+
+  $("input[name=phone]").mask("+38 (999) 999-9999");
 });
 
 const tabs = document.querySelector(".catalog__tabs");
